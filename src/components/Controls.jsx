@@ -2,17 +2,18 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import { AppContext } from '../AppProvider';
 import { useReactToPrint } from 'react-to-print';
 import { startTimerHandler, restartTimerHandler, formatTime } from '../scripts/timer-crossword.js';
-import { DrawCrossword } from './CrosswordContainer';
+import CrosswordContainer from './CrosswordContainer';
 
-const Controls = ({ handleRestart }) => {
+const Controls = ({ handleRestart}) => {
   const { setShowAnswers, vword, timerDuration, timerRef, setTimerRef } = useContext(AppContext);
   const [timeLeft, setTimeLeft] = useState(0);
 
-  const printRef = useRef();
+  const printRef=useRef(null);
   const handlePrint = useReactToPrint({
-    content: () => printRef.current,
-    documentTitle: `Crucigrama | ${vword}`,
+      contentRef: printRef,
+      documentTitle: `Crucigrama | ${vword}`,
   });
+
 
   useEffect(() => {
     if (timerRef && timeLeft === 0) {
@@ -52,8 +53,8 @@ const Controls = ({ handleRestart }) => {
       </button>
 
       <div style={{ display: 'none' }}>
-        <div ref={printRef}>
-          <DrawCrossword showAnswers={false} />
+        <div ref={printRef} style={{ display: 'flex' , justifyContent: 'center'}}>
+          <CrosswordContainer showAnswers={false}/>
         </div>
       </div>
     </div>
