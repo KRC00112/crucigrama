@@ -106,7 +106,7 @@ export const DrawCrossword = ({ showAnswers, handleKeyDown, inputRefs }) => {
   );
 };
 
-const CrosswordContainer = ({showAnswers}) => {
+const CrosswordContainer = () => {
   const { answers } = useContext(AppContext);
   const maxWordLength = answers.reduce((max, word) => Math.max(max, word.length), 0);
   const inputRefs = useRef(answers.map(() => Array(maxWordLength).fill(null)));
@@ -128,7 +128,7 @@ const CrosswordContainer = ({showAnswers}) => {
 
   return (
     <div className="p-4 bg-gray-800 rounded-lg shadow-lg inline-block">
-      <DrawCrossword showAnswers={showAnswers} handleKeyDown={handleKeyDown} inputRefs={inputRefs} />
+      <DrawCrossword showAnswers={false} handleKeyDown={handleKeyDown} inputRefs={inputRefs} />
     </div>
   );
 };

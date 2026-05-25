@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import { AppContext } from '../AppProvider';
 import { useReactToPrint } from 'react-to-print';
 import { startTimerHandler, restartTimerHandler, formatTime } from '../scripts/timer-crossword.js';
-import CrosswordContainer from './CrosswordContainer';
+import {DrawCrossword} from './CrosswordContainer';
 
 const Controls = ({ handleRestart}) => {
   const { setShowAnswers, vword, timerDuration, timerRef, setTimerRef } = useContext(AppContext);
@@ -53,8 +53,8 @@ const Controls = ({ handleRestart}) => {
       </button>
 
       <div style={{ display: 'none' }}>
-        <div ref={printRef} style={{ display: 'flex' , justifyContent: 'center'}}>
-          <CrosswordContainer showAnswers={false}/>
+        <div ref={printRef} style={{ display: 'flex' , justifyContent: 'center', background:'purple'}}>
+          <DrawCrossword showAnswers={false}/>
         </div>
       </div>
     </div>
