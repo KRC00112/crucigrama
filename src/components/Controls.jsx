@@ -40,7 +40,7 @@ const Controls = ({ handleRestart}) => {
         )}
         <button onClick={handleRestart} data-i18n="restart_button" className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition-colors">Restart Puzzle</button>
         <button onClick={() => setShowAnswers(true)} data-i18n="view_answers_button" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">View Answers</button>
-        <button onClick={handlePrint} data-i18n="print_button" className="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition-colors">Print</button>
+        <button onClick={()=>handlePrint()} data-i18n="print_button" className="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition-colors">Print</button>
       </div>
 
       <button
